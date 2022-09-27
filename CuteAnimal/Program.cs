@@ -10,9 +10,9 @@ namespace CuteAnimal
             Cat c2 = new Cat(10, "Faisca", Feed.Satisfied, Mood.Grumpy);
             Cat c3 = new Cat("Pincel");
 
-            Console.WriteLine(c1.GetName());
-            Console.WriteLine(c2.GetName());
-            Console.WriteLine(c3.GetName());
+            Console.WriteLine(c1.Name);
+            Console.WriteLine(c2.Name);
+            Console.WriteLine(c3.Name);
         }
     }
 }
