@@ -8,6 +8,11 @@ namespace CuteAnimal
         {
             Cat c1 = new Cat(50, "Leonor", Feed.Starving, Mood.Happy);
             Cat c2 = new Cat(10, "Faisca", Feed.Satisfied, Mood.Grumpy);
+            Cat c3 = new Cat("Pincel");
+
+            Console.WriteLine(c1.GetName());
+            Console.WriteLine(c2.GetName());
+            Console.WriteLine(c3.GetName());
         }
     }
 }

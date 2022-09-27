@@ -1,3 +1,5 @@
+using System;
+
 namespace CuteAnimal
 {
     public class Cat
@@ -5,22 +7,33 @@ namespace CuteAnimal
         private int energy;
         private string name;
 
-        private Feed feedStatus;
-        private Mood moodStatus;
+        private Random rng;
 
-        public Cat(int energy, string name, Feed feedStatus, Mood moodStatus)
+        private Feed feed;
+        private Mood mood;
+
+        public Cat(int energy, string name, Feed feed, Mood mood) : this()
         {
             this.energy = energy;
             this.name = name;
-            this.feedStatus = feedStatus;
-            this.moodStatus = moodStatus;
+            this.feed = feed;
+            this.mood = mood;
         }
+
+        public Cat(string name) : this(40, name, Feed.AboutToExplode, Mood.Happy) { }
+
+        public Cat()
+        {
+            rng = new Random();
+        }
+
+        public string GetName() => name;
 
         public void Eat()
         {
-            if (feedStatus < Feed.AboutToExplode)
+            if (feed < Feed.AboutToExplode)
             {
-                feedStatus++;
+                feed++;
             }
         }
 
