@@ -143,17 +143,35 @@ namespace CuteAnimal
             energy = random.Next(MaxEnergy + 1);
 
             // Obter valor aleatório para o estado de alimentação e guardá-lo
-            FeedStatus =
-                possibleFeedStatus[random.Next(possibleFeedStatus.Length)];
+            FeedStatus = possibleFeedStatus[random.Next(possibleFeedStatus.Length)];
 
             // Obter valor aleatório para o Mood e guardá-lo
-            MoodStatus =
-                possibleMoods[random.Next(possibleMoods.Length)];
+            MoodStatus = RandomMoods();
         }
 
         //////////////////////////////////////////////////////
         //    Ações do gato, definidas pelos seus métodos   //
         //////////////////////////////////////////////////////
+
+        // Obter um ou mais moods aleatórios
+        private Mood RandomMoods()
+        {
+            // Moods aleatórias a obter
+            Mood moods = 0;
+
+            // Quantas moods em simultâneo no máximo?
+            int numMoods = random.Next(possibleMoods.Length) + 1;
+
+            // Obter moods
+            for (int i = 0; i < numMoods; i++)
+            {
+                // Usando o operador OR bit-a-bit conseguimos ter mais do que
+                // uma mood na mesma variável (ver enumeration flags)
+                moods |= possibleMoods[random.Next(possibleMoods.Length)];
+            }
+
+            return moods;
+        }
 
         // Comer
         public void Eat()
@@ -177,8 +195,8 @@ namespace CuteAnimal
             // dentro dos valores aceitáveis da enumeração
             FeedStatus--;
 
-            // A disposição do gato ao acordar é aleatória
-            MoodStatus = possibleMoods[random.Next(possibleMoods.Length)];
+            // As disposições do gato ao acordar são aleatórias
+            MoodStatus = RandomMoods();
 
         }
 

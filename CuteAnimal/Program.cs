@@ -18,7 +18,7 @@ namespace CuteAnimal
 
             // Criar 2 gatos usando os diferentes construtores 
 
-            c1 = new Cat("Faisca", 10, Feed.Satisfied, Mood.Grumpy);
+            c1 = new Cat("Faisca", 10, Feed.Satisfied, Mood.Grumpy | Mood.HyperActive);
             c2 = new Cat("Pincel");
 
             // Mostrar estado de cada gato antes das ações
